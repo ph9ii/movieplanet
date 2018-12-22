@@ -15,7 +15,7 @@ Route::resource('users', 'User\UserController', ['except' => ['create', 'edit']]
 Route::resource('users.ratings', 'User\UserRatingController', 
 	['only' => ['index']]);
 
-Route::name('verify')->get('users/verify/{token}', 'User\UserController@verify');
+Route::name('verify')->get('users/verify/{token}', 'User\UserController@verifyUser');
 
 /**
  * Genres
@@ -82,12 +82,6 @@ Route::resource('directors.movies', 'Director\DirectorMovieController',
  */
 Route::resource('ratings', 'Rating\RatingController',
 	['only' => ['index', 'show']]);
-
-
-
-
-
-
 
 
 
