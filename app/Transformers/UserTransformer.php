@@ -16,7 +16,7 @@ class UserTransformer extends TransformerAbstract
     {
         return [
             'identifier'    => (int) $user->id,
-            'UserName'      => (string) $user->name,
+            'userName'      => (string) $user->name,
             'email'         => (string) $user->email,
             'isVerified'    => (int) $user->verified,
             'isAdmin'       => ($user->admin === 'true'),
@@ -40,9 +40,11 @@ class UserTransformer extends TransformerAbstract
     public static function originalAttribute($index)
     {
         $attributes = [
-            'identifier'    => 'id',
-            'UserName'      => 'name',
-            'email'         => 'email',
+            'identifier'            => 'id',
+            'userName'              => 'name',
+            'email'                 => 'email',
+            'password'              => 'password',
+            'password_confirmation' => 'password_confirmation',
             'isVerified'    => 'verified',
             'isAdmin'       => 'admin',
             'creationDate'  => 'created_at',
@@ -57,9 +59,11 @@ class UserTransformer extends TransformerAbstract
     public static function transformedAttribute($index)
     {
         $attributes = [
-            'id'         => 'identifier',
-            'name'       => 'UserName',
-            'email'      => 'email',
+            'id'                       => 'identifier',
+            'name'                     => 'userName',
+            'email'                    => 'email',
+            'password'                 => 'password',
+            'password_confirmation'    => 'password_confirmation',
             'verified'   => 'isVerified',
             'admin'      => 'isAdmin',
             'created_at' => 'creationDate',
