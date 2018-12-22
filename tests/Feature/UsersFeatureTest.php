@@ -22,7 +22,40 @@ class UsersFeatureTest extends TestCase
     }
 
     /**
-     * Only an authanticated user can see movies.
+     * Guest can register a new account.
+     *
+     * @return void
+     */
+    public function test_Guest_Can_Register()
+    {
+        $this->withExceptionHandling();
+
+        // $this->withoutMiddleware(\Laravel\Passport\Http\Middleware\CheckClientCredentials::class);
+
+        actingAsClient($this);
+
+        $header = [];
+
+        $input = [
+            'name' => 'TestAcount',
+            'email'    => 'em1test@test.com',
+            'password' => 'secretsecret',
+            'password_confirmation' => 'secretsecret'
+        ];
+
+        $data = [
+                    'userName' => "Testacount",
+                    'email' => "em1test@test.com",
+                    'isVerified' => 0
+                ];
+
+        $this->json('POST', 'api/users', $input)
+            ->assertStatus(201)
+            ->assertJsonFragment($data);
+    }
+
+    /**
+     * Users can verify their accounts.
      *
      * @return void
      */
