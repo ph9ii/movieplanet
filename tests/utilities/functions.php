@@ -10,9 +10,9 @@ function make($class, $attributes = [],$times = null)
 	return factory($class, $times)->make($attributes);
 }
 
-function actingAsClient()
+function actingAsClient($self)
 {
-	return $this->withoutMiddleware(\Laravel\Passport\Http\Middleware\CheckClientCredentials::class);
+	return $self->withoutMiddleware(\Laravel\Passport\Http\Middleware\CheckClientCredentials::class);
 }
 
 
