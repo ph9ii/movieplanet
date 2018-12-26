@@ -91,7 +91,7 @@ Run php artisan passport:client --personal
 - To use personal type credentials add to header
 	Authorization => Bearer {access_token}
 
-## Create new client for user you need to be logined
+## Create new client for user you need to be logged in
 Go to My Clients then create new client name and redirect url
 - To obtain access token using the authorization code grand type using this, we need to go to 'api/oauth/authorize?client_id={client_id}&redirect_uri={redirect_url}&response_type=code'.
 - Then login or create a new user then authorize.
