@@ -10,6 +10,8 @@ Follow the following steps to install the project within docker container.
 
 - Create a throw-away container by executing the following command
   --docker run --rm -v $(pwd):/app composer/composer install
+  or
+  --docker run --rm -v ${pwd}:/app composer/composer install
 - Starting docker 
   --docker-compose up
 
