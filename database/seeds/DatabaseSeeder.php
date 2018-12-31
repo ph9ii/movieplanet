@@ -1,7 +1,6 @@
 <?php
 
 use App\Year;
-use App\Test;
 use App\User;
 use App\Movie;
 use App\Genre;
