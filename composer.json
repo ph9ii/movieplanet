@@ -10,7 +10,6 @@
         "laravel/framework": "5.4.*",
         "laravel/passport": "^4.0",
         "laravel/tinker": "~1.0",
-        "fzaninotto/faker": "~1.4",
         "spatie/laravel-fractal": "^4.5"
     },
     "require-dev": {
