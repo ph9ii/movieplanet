@@ -9,27 +9,41 @@
 Follow the following steps to install the project within docker container.
 
 - Create a throw-away container by executing the following command
+  
   --docker run --rm -v $(pwd):/app composer/composer install
+  
   or
+  
   --docker run --rm -v ${pwd}:/app composer/composer install
-- Starting docker 
+
+- Starting docker
+
   --docker-compose up
 
 - Copy the .env.example file into our own .env file. This file will not be checked into version control copy --.env.example -> --.env
 
 - Run the following commands
+
   --docker-compose exec app php artisan key:generate
+
   --docker-compose exec app php artisan optimize
+
   --docker-compose exec app php artisan migrate --seed
+
   --docker-compose exec app php artisan passport:install
 
 ## Install without docker for development
 Follow the following steps to install the project without docker container, you will need php apache server or Nginx with MariaDB or any other compatible database.
 - Run the following commands in your local enviroment inside your app root.
+
   --composer install
+
   --php artisan key:generate
+
   --php artisan optimize
+
   --php artisan migrate --seed
+
   --php artisan passport:install
 
 *NOTE: Don't forget to edit your .env file with proper configuration.*
@@ -40,7 +54,9 @@ Follow the following steps in-order to consume endpoints.
 	-- At least a clients credential is required to perform most of actions.
 
 - You can check all endpoints by running the following command on your local:
+  
   --php artisan route:list.
+  
 - Go to "/api/movies" to retrieve a list of all movies or a single movie, and to update, post, or delete a movie by passing the necessary parameters to the url for example "api/movies/3".
 - To update a movie genres or actors you need to go to dedicated endpoints for example: "api/movies/{movie}/actors/{actor}".
 - You can rate a movie by sending a post request to "api/movies/{movie}/user/{user}/ratings".
